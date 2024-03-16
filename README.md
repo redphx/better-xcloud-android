@@ -15,9 +15,10 @@
 - [❤️ Donation](https://ko-fi.com/redphx)
 
 ### Benefits of using Android app over Kiwi browser:
+- Support all features of the userscript 
 - Smaller app (< 10MB)
 - Better performance and battery life
 - Better vibration support
 - Automatically limits screen's refresh rate to 60Hz
 - Better Android TV support (soon)
-
+- Support custom userscript
