@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+<!-- ⚠️ Only use English. Any other languages will be deleted. -->
+
 **Platform**
 - Device name: ...
 - Device type (phone/TV): ...
