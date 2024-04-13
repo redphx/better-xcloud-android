@@ -1,0 +1,45 @@
+name: Feature Request 🚀
+description: Request a new feature, improvement, or general suggestion
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the following information to help us understand your request.
+  - type: dropdown
+    id: device_type
+    attributes:
+      label: Device
+      description: "Which device are you using?"
+      options:
+        - Phone/Tablet
+        - TV
+        - Other
+      multiple: false
+    validations:
+      required: true
+  - type: input
+    id: device_name
+    attributes:
+      label: "Device name"
+      description: "What is the name of the device?"
+      placeholder: "e.g., Google Pixel 8 Pro"
+    validations:
+      required: true
+  - type: input
+    id: android_version
+    attributes:
+      label: "Android Version"
+      description: "What is the version of Android?"
+      placeholder: "e.g., 14"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "Suggestion"
+      description: "What do you want to suggest?"
+    validations:
+      required: true
