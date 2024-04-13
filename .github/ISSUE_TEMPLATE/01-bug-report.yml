@@ -1,0 +1,75 @@
+name: Bug Report 🐞
+description: File a bug report
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the following information to help us resolve the issue.
+  - type: dropdown
+    id: device_type
+    attributes:
+      label: Device
+      description: "Which device are you using?"
+      options:
+        - Phone/Tablet
+        - TV
+        - Other
+      multiple: false
+    validations:
+      required: true
+  - type: input
+    id: device_name
+    attributes:
+      label: "Device name"
+      description: "What is the name of the device?"
+      placeholder: "e.g., Google Pixel 8 Pro"
+    validations:
+      required: true
+  - type: input
+    id: android_version
+    attributes:
+      label: "Android Version"
+      description: "What is the version of Android?"
+      placeholder: "e.g., 14"
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: "App version"
+      description: "Which app version are you using?"
+      placeholder: "e.g., 0.11.0"
+    validations:
+      required: true
+  - type: input
+    id: script_version
+    attributes:
+      label: "Script version"
+      description: "Which script version are you using?"
+      placeholder: "e.g., 3.5.0"
+    validations:
+      required: true
+  - type: input
+    id: webview
+    attributes:
+      label: "WebView name and version"
+      description: "Which WebView implementation are you using? You can get this info in Settings > WebView implementation."
+      placeholder: "e.g., Android System WebView 122.0"
+    validations:
+      required: false
+  - type: textarea
+    id: repro
+    attributes:
+      label: "Reproduction Steps"
+      description: |
+        How did you trigger this bug? Please provide screenshot/video if possible.
+      placeholder: |
+        Example:
+        1. Open game X
+        2. Click on Y
+        3. Error
+    validations:
+      required: true
