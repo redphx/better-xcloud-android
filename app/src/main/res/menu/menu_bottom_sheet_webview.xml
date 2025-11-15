@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_back" android:id="@id/action_back" android:title="@string/back" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_forward" android:id="@id/action_forward" android:title="@string/forward" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_refresh" android:id="@id/action_refresh" android:title="@string/refresh" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_trophy" android:id="@id/action_home" android:title="@string/home" app:showAsAction="always" />
+    <item android:icon="@drawable/ic_external" android:id="@id/action_external" android:title="@string/open_in_browser" app:showAsAction="always" />
+</menu>

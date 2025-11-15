@@ -1,119 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <PreferenceCategory android:title="@string/settings_category_stream">
-
-        <ListPreference
-            android:key="pref_stream_quality"
-            android:title="@string/pref_stream_quality"
-            android:summary="@string/pref_stream_quality_summary"
-            android:entries="@array/stream_quality_entries"
-            android:entryValues="@array/stream_quality_values"
-            android:defaultValue="1080p" />
-
-        <SwitchPreference
-            android:key="pref_enable_stats"
-            android:title="@string/pref_enable_stats"
-            android:summary="@string/pref_enable_stats_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="pref_enable_hdr"
-            android:title="Enable HDR"
-            android:summary="Enable high dynamic range streaming (if supported)"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="pref_enable_5g"
-            android:title="Enable 5G"
-            android:summary="Use 5GHz WiFi for better performance"
-            android:defaultValue="true" />
-
+<PreferenceScreen android:fragment="com.redphx.betterxc.fragment.SettingsFragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:key="category_ui" app:title="@string/ui">
+        <SwitchPreferenceCompat app:defaultValue="false" app:key="ui_material_you" app:singleLineTitle="false" app:summary="@string/requires_restart" app:title="@string/material_you" />
+        <com.redphx.betterxc.custom_view.MaterialListPreference android:defaultValue="dark" app:entries="@array/theme_names" app:entryValues="@array/theme_values" app:key="theme" app:title="@string/theme" app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_category_input">
-
-        <SwitchPreference
-            android:key="pref_gamepad_vibration"
-            android:title="@string/pref_gamepad_vibration"
-            android:summary="@string/pref_gamepad_vibration_summary"
-            android:defaultValue="true" />
-
-        <SeekBarPreference
-            android:key="pref_gamepad_deadzone"
-            android:title="Controller Deadzone"
-            android:summary="Adjust analog stick deadzone to reduce drift"
-            android:defaultValue="15"
-            android:min="0"
-            android:max="30" />
-
-        <SwitchPreference
-            android:key="pref_button_remapping"
-            android:title="@string/pref_button_remapping"
-            android:summary="@string/pref_button_remapping_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="pref_reverse_y_axis"
-            android:title="Reverse Y Axis"
-            android:summary="Flip vertical camera movement"
-            android:defaultValue="false" />
-
+    <PreferenceCategory app:key="category_general" app:title="@string/general">
+        <com.redphx.betterxc.custom_view.MaterialListPreference android:defaultValue="playing" app:entries="@array/force_landscape_mode_names" app:entryValues="@array/force_landscape_mode_values" app:key="force_landscape_mode" app:singleLineTitle="false" app:title="@string/force_landscape_mode" app:useSimpleSummaryProvider="true" />
+        <com.redphx.betterxc.custom_view.MaterialListPreference android:defaultValue="0" app:entries="@array/low_battery_indicator_names" app:entryValues="@array/low_battery_indicator_values" app:key="low_battery_indicator" app:title="@string/low_battery_indicator" app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat app:defaultValue="true" app:key="screen_force_60hz" app:singleLineTitle="false" app:summary="@string/requires_restart" app:title="@string/prefer_60hz_refresh_rate" />
+        <SwitchPreferenceCompat android:summary="Recommended for handheld devices" app:defaultValue="false" app:key="remap_back_button" app:singleLineTitle="false" app:title="Hardware Back button as Xbox button" />
+        <SwitchPreferenceCompat app:key="tv_allm" app:singleLineTitle="false" app:summary="@string/requires_restart" app:title="Enable Auto Low Latency Mode (ALLM)" />
+        <Preference android:persistent="false" app:defaultValue="false" app:key="grant_storage_permission" app:singleLineTitle="false" app:title="Grant Storage permission" />
     </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_category_advanced">
-
-        <SwitchPreference
-            android:key="pref_hardware_acceleration"
-            android:title="Hardware Acceleration"
-            android:summary="Use GPU for rendering (improves performance)"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="pref_cache_size"
-            android:title="Cache Size"
-            android:summary="WebView cache size limit"
-            android:entries="@array/cache_size_entries"
-            android:entryValues="@array/cache_size_values"
-            android:defaultValue="50" />
-
-        <Preference
-            android:key="pref_clear_cache"
-            android:title="@string/pref_clear_cache"
-            android:summary="@string/pref_clear_cache_summary" />
-
-        <SwitchPreference
-            android:key="pref_debug_mode"
-            android:title="@string/pref_debug_mode"
-            android:summary="@string/pref_debug_mode_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="pref_keep_screen_on"
-            android:title="Keep Screen On"
-            android:summary="Prevent screen from turning off during streaming"
-            android:defaultValue="true" />
-
-        <SwitchPreference
-            android:key="pref_disable_idle_timeout"
-            android:title="Disable Idle Timeout"
-            android:summary="Keep connection active even when idle"
-            android:defaultValue="false" />
-
+    <PreferenceCategory app:key="category_web" app:title="@string/xcloud_website">
+        <com.redphx.betterxc.custom_view.MaterialListPreference android:defaultValue="en-US" app:entries="@array/web_locale_names" app:entryValues="@array/web_locale_values" app:key="web_locale" app:title="@string/market_and_language" app:useSimpleSummaryProvider="true" />
+        <SeekBarPreference android:max="120" app:defaultValue="100" app:key="web_zoom" app:min="80" app:showSeekBarValue="true" app:title="@string/pref_web_zoom" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:key="web_zoom_while_playing" app:singleLineTitle="false" app:title="Keep zoom factor during gameplay" />
     </PreferenceCategory>
-
-    <PreferenceCategory android:title="About">
-
-        <Preference
-            android:key="pref_app_version"
-            android:title="App Version"
-            android:summary="1.0.0" />
-
-        <Preference
-            android:key="pref_check_updates"
-            android:title="Check for Updates"
-            android:summary="Download the latest version" />
-
+    <PreferenceCategory app:key="category_userscript" app:title="@string/userscript">
+        <SwitchPreferenceCompat app:defaultValue="true" app:key="enable_bx_script" app:title="@string/enable_bx_script" />
+        <com.redphx.betterxc.custom_view.MaterialListPreference android:defaultValue="stable" app:entries="@array/bx_script_variant_names" app:entryValues="@array/bx_script_variant_values" app:key="bx_script_variant" app:title="Better xCloud script variant" app:useSimpleSummaryProvider="true" />
+        <Preference android:persistent="false" app:key="update_bx_script" app:title="@string/update_better_xcloud_script" />
+        <Preference android:persistent="false" app:allowDividerAbove="true" app:key="custom_userscript" app:title="@string/custom_script" />
     </PreferenceCategory>
-
-</androidx.preference.PreferenceScreen>
+    <PreferenceCategory app:key="category_webview" app:title="@string/webview">
+        <SwitchPreferenceCompat app:defaultValue="false" app:key="webview_optimize" app:summary="Improve performance on Android TV and low specs devices" app:title="Optimize WebView performance" />
+        <Preference android:persistent="false" app:key="webview_manager" app:title="@string/webview_manager" />
+        <Preference android:persistent="false" android:title="@string/webview_devtools" app:key="webview_devtools" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:key="webview_debuggable" app:summary="⚠️ For testing only" app:title="Remote debugging" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/links">
+        <Preference android:persistent="false" android:summary="@string/gamepad_tester_summary" app:key="web_gamepad_tester" app:title="@string/gamepad_tester" />
+        <Preference android:persistent="false" android:summary="@string/keyjs_summary" app:key="web_keyjs" app:title="@string/keyjs" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/about">
+        <Preference android:persistent="false" android:summary="" app:key="check_for_update" app:title="@string/app_name" />
+        <Preference android:persistent="false" android:summary="@string/kofi_summary" app:key="web_kofi" app:title="@string/kofi_title" />
+        <Preference android:persistent="false" android:summary="@string/url_homepage" app:key="web_homepage" app:title="@string/homepage" />
+        <Preference android:persistent="false" android:summary="@string/url_github_android" app:key="web_github_android" app:title="@string/github_repo" />
+        <Preference android:persistent="false" android:summary="@string/url_telegram_channel" app:key="web_telegram_channel" app:title="@string/telegram_channel" />
+    </PreferenceCategory>
+</PreferenceScreen>

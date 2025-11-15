@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="8.0dip" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="11.0sp" android:id="@id/txt_unsupported" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="@string/unsupported_message" />
+    <com.google.android.material.button.MaterialButtonToggleGroup android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/tgl_tab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" app:checkedButton="@id/btn_installed" app:selectionRequired="true" app:singleSelection="true">
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_installed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="32.0dip" android:text="Installed" android:layout_weight="1.0" android:insetTop="0.0dip" android:insetBottom="0.0dip" style="?materialButtonOutlinedStyle" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_downloader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="32.0dip" android:text="Downloader" android:layout_weight="1.0" android:insetTop="0.0dip" android:insetBottom="0.0dip" style="?materialButtonOutlinedStyle" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+    <LinearLayout android:orientation="vertical" android:id="@id/lay_installed" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center" android:id="@id/txt_empty" android:padding="16.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/webview_empty" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/lst_installed" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_refresh" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/refresh" style="@style/Widget.Material3.Button.TextButton" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/lay_downloader" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/lst_downloader" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="11.0sp" android:textStyle="italic" android:gravity="center" android:id="@id/txt_download_progress" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/webview_download_progress" />
+    </LinearLayout>
+</LinearLayout>

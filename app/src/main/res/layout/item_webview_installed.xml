@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="?android:selectableItemBackground" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.radiobutton.MaterialRadioButton android:id="@id/rdo_check" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/img_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginEnd="10.0dip" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="14.0sp" android:id="@id/txt_webview_name" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="10.0sp" android:id="@id/txt_webview_package" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="10.0sp" android:id="@id/txt_webview_version" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

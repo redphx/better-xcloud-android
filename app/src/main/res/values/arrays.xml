@@ -1,34 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Stream Quality Options -->
-    <string-array name="stream_quality_entries">
-        <item>720p (Balanced)</item>
-        <item>1080p (High)</item>
-        <item>1440p (Ultra)</item>
-        <item>4K (Maximum)</item>
+    <string-array name="bx_script_variant_names">
+        <item>Stable</item>
+        <item>Beta</item>
+        <item>Local</item>
     </string-array>
-
-    <string-array name="stream_quality_values">
-        <item>720p</item>
-        <item>1080p</item>
-        <item>1440p</item>
-        <item>4k</item>
+    <string-array name="bx_script_variant_values">
+        <item>stable</item>
+        <item>beta</item>
+        <item>local</item>
     </string-array>
-
-    <!-- Cache Size Options -->
-    <string-array name="cache_size_entries">
-        <item>25 MB</item>
-        <item>50 MB</item>
-        <item>100 MB</item>
-        <item>200 MB</item>
+    <string-array name="force_landscape_mode_names">
+        <item>Only when playing</item>
+        <item>Always</item>
+        <item>Never</item>
     </string-array>
-
-    <string-array name="cache_size_values">
+    <string-array name="force_landscape_mode_values">
+        <item>playing</item>
+        <item>always</item>
+        <item>never</item>
+    </string-array>
+    <string-array name="low_battery_indicator_names">
+        <item>Off</item>
+        <item>5%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>25%</item>
+        <item>30%</item>
+        <item>35%</item>
+        <item>40%</item>
+    </string-array>
+    <string-array name="low_battery_indicator_values">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
         <item>25</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
     </string-array>
-
+    <string-array name="theme_names">
+        <item>System</item>
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+    <string-array name="theme_values">
+        <item>system</item>
+        <item>dark</item>
+        <item>light</item>
+    </string-array>
+    <string-array name="web_locale_names">
+        <item>Argentina - Español</item>
+        <item>Australia - English</item>
+        <item>Austria</item>
+        <item>Belgique - Français</item>
+        <item>België - Nederlands</item>
+        <item>Brasil - Português</item>
+        <item>Canada - English</item>
+        <item>Canada - Français</item>
+        <item>Česká Republika - Čeština</item>
+        <item>Danmark - Dansk</item>
+        <item>Deutschland - Deutsch</item>
+        <item>España - Español</item>
+        <item>France - Français</item>
+        <item>Ireland - English</item>
+        <item>Italia - Italiano</item>
+        <item>日本 - 日本語</item>
+        <item>대한민국 - 한국어</item>
+        <item>Magyarország - Magyar</item>
+        <item>México - Español</item>
+        <item>New Zealand - English</item>
+        <item>Norge - Norsk bokmål</item>
+        <item>Polska - Polski</item>
+        <item>Portugal - Português</item>
+        <item>Schweiz - Deutsch</item>
+        <item>Slovensko - Slovenčina</item>
+        <item>Suomi - Suomi</item>
+        <item>Sverige - Svenska</item>
+        <item>United Kingdom - English</item>
+        <item>United States - English</item>
+    </string-array>
+    <string-array name="web_locale_values">
+        <item>es-AR</item>
+        <item>en-AU</item>
+        <item>en-AU</item>
+        <item>fr-BE</item>
+        <item>nl-BE</item>
+        <item>pt-BR</item>
+        <item>en-CA</item>
+        <item>fr-CA</item>
+        <item>cs-CZ</item>
+        <item>da-DK</item>
+        <item>de-DE</item>
+        <item>es-ES</item>
+        <item>fr-FR</item>
+        <item>en-IE</item>
+        <item>it-IT</item>
+        <item>ja-JP</item>
+        <item>ko-KR</item>
+        <item>hu-HU</item>
+        <item>es-MX</item>
+        <item>en-NZ</item>
+        <item>nb-NO</item>
+        <item>pl-PL</item>
+        <item>pt-PT</item>
+        <item>de-CH</item>
+        <item>sk-SK</item>
+        <item>fi-FI</item>
+        <item>sv-SE</item>
+        <item>en-GB</item>
+        <item>en-US</item>
+    </string-array>
 </resources>

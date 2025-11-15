@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.progressindicator.CircularProgressIndicator android:id="@id/progress_circular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" app:indicatorSize="50.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="11.0sp" android:id="@id/text_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" app:layout_constraintBottom_toBottomOf="@id/progress_circular" app:layout_constraintEnd_toEndOf="@id/progress_circular" app:layout_constraintStart_toStartOf="@id/progress_circular" app:layout_constraintTop_toTopOf="@id/progress_circular" />
+    <TextView android:id="@id/txt_progress_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/downloading" android:layout_marginStart="10.0dip" app:layout_constraintBottom_toBottomOf="@id/progress_circular" app:layout_constraintStart_toEndOf="@id/progress_circular" app:layout_constraintTop_toTopOf="@id/progress_circular" />
+</androidx.constraintlayout.widget.ConstraintLayout>

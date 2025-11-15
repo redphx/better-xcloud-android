@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:inset="@dimen/action_bar_icon_inset"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <vector android:height="32.0dip" android:width="32.0dip" android:viewportWidth="256.0" android:viewportHeight="256.0">
+        <path android:fillColor="#ffffffff" android:pathData="M232,64L208,64L208,48a8,8 0,0 0,-8 -8L56,40a8,8 0,0 0,-8 8L48,64L24,64A16,16 0,0 0,8 80L8,96a40,40 0,0 0,40 40h3.65A80.13,80.13 0,0 0,120 191.61L120,216L96,216a8,8 0,0 0,0 16h64a8,8 0,0 0,0 -16L136,216L136,191.58c31.94,-3.23 58.44,-25.64 68.08,-55.58L208,136a40,40 0,0 0,40 -40L248,80A16,16 0,0 0,232 64ZM48,120A24,24 0,0 1,24 96L24,80L48,80v32q0,4 0.39,8ZM192,111.1c0,35.52 -29,64.64 -64,64.9a64,64 0,0 1,-64 -64L64,56L192,56ZM232,96a24,24 0,0 1,-24 24h-0.5a81.81,81.81 0,0 0,0.5 -8.9L208,80h24Z" />
+    </vector>
+</inset>

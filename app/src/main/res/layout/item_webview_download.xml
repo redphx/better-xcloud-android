@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="?android:selectableItemBackground" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="8.0dip" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+        <TextView android:textSize="14.0sp" android:id="@id/txt_webview_name" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="10.0sp" android:id="@id/txt_webview_source" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton android:id="@id/btn_link" android:layout_width="wrap_content" android:layout_height="wrap_content" app:icon="@drawable/ic_home" style="?materialIconButtonStyle" />
+    <com.google.android.material.button.MaterialButton android:id="@id/btn_download" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/download" style="@style/Widget.Material3.Button.OutlinedButton" />
+</LinearLayout>

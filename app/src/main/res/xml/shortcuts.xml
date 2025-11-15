@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_settings" android:enabled="true" android:shortcutId="settings" android:shortcutShortLabel="@string/settings" android:shortcutLongLabel="@string/settings">
+        <intent android:targetPackage="com.redphx.betterxc" android:action="android.intent.action.VIEW" android:targetClass="com.redphx.betterxc.activity.SettingsActivity" />
+    </shortcut>
+</shortcuts>

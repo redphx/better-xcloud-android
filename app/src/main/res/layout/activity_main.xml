@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_frame"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:fitsSystemWindows="false" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:orientation="vertical" android:id="@id/lay_header" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:id="@id/lay_storage_access" android:background="@color/app_bg" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/toolbar">
+                <Button android:textSize="12.0sp" android:id="@id/btn_grant" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/grant" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/btn_ignore" app:layout_constraintTop_toTopOf="parent" />
+                <Button android:textSize="12.0sp" android:id="@id/btn_ignore" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ignore" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/Widget.Material3.Button.TextButton" />
+                <TextView android:textSize="12.0sp" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:text="@string/storage_permission_msg" app:layout_constraintBottom_toBottomOf="@id/btn_grant" app:layout_constraintEnd_toStartOf="@id/btn_grant" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@id/btn_grant" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button android:layout_gravity="center" android:id="@id/btn_remote_log_in" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/log_in_remotely" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/lay_storage_access" />
+        </LinearLayout>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/lay_swipe_refresh" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_behavior="@string/appbar_scrolling_view_behavior" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/lay_header">
+            <FrameLayout android:id="@id/lay_webview" android:background="@color/app_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:defaultFocusHighlightEnabled="false" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/progress_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/lay_header" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="end|bottom|center" android:orientation="vertical" android:id="@id/lay_fab_container" android:padding="16.0dip" android:focusable="false" android:visibility="gone" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:divider="@drawable/spacer_fab" android:showDividers="middle">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@id/fab_settings" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/settings" app:srcCompat="@drawable/ic_settings" />
+    </LinearLayout>
+    <View android:orientation="horizontal" android:id="@id/view_low_battery_indicator" android:background="@drawable/low_battery_indicator" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:clickable="false" android:layout_width="fill_parent" android:layout_height="10.0dip" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
