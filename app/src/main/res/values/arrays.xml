@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Stream Quality Options -->
+    <string-array name="stream_quality_entries">
+        <item>720p (Balanced)</item>
+        <item>1080p (High)</item>
+        <item>1440p (Ultra)</item>
+        <item>4K (Maximum)</item>
+    </string-array>
+
+    <string-array name="stream_quality_values">
+        <item>720p</item>
+        <item>1080p</item>
+        <item>1440p</item>
+        <item>4k</item>
+    </string-array>
+
+    <!-- Cache Size Options -->
+    <string-array name="cache_size_entries">
+        <item>25 MB</item>
+        <item>50 MB</item>
+        <item>100 MB</item>
+        <item>200 MB</item>
+    </string-array>
+
+    <string-array name="cache_size_values">
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+    </string-array>
+
+</resources>

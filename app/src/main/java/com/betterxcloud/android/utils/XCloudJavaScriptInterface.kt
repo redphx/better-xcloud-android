@@ -1,6 +1,9 @@
 package com.betterxcloud.android.utils
 
 import android.content.Context
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.widget.Toast
@@ -73,7 +76,33 @@ class XCloudJavaScriptInterface(private val context: Context) {
     @JavascriptInterface
     fun vibrate(durationMs: Long) {
         Log.d(TAG, "Vibration requested: ${durationMs}ms")
-        // TODO: Implement vibration if device supports it
+
+        // Clamp duration to reasonable values (10ms - 500ms)
+        val clampedDuration = durationMs.coerceIn(10, 500)
+
+        try {
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+            if (vibrator != null && vibrator.hasVibrator()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    // For Android Q (API 29) and above, use VibrationEffect
+                    vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                            clampedDuration,
+                            VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                    )
+                } else {
+                    // For older versions, use deprecated vibrate method
+                    @Suppress("DEPRECATION")
+                    vibrator.vibrate(clampedDuration)
+                }
+                Log.d(TAG, "Vibration completed")
+            } else {
+                Log.w(TAG, "Device does not support vibration")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to vibrate: ${e.message}", e)
+        }
     }
 
     /**

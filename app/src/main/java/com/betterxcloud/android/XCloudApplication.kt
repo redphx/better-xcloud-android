@@ -17,6 +17,9 @@ class XCloudApplication : Application() {
         super.onCreate()
         instance = this
 
+        // Setup global crash handler (Issue #22 - Add crash handler)
+        setupCrashHandler()
+
         // Enable WebView debugging in debug builds
         if (BuildConfig.DEBUG) {
             WebView.setWebContentsDebuggingEnabled(true)
@@ -27,6 +30,20 @@ class XCloudApplication : Application() {
         registerActivityLifecycleCallbacks(ActivityLifecycleHandler())
 
         Log.i(TAG, "Better xCloud Application initialized - Version ${BuildConfig.VERSION_NAME}")
+    }
+
+    /**
+     * Setup global uncaught exception handler for crash handling (Issue #22)
+     */
+    private fun setupCrashHandler() {
+        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Log.e(TAG, "Uncaught exception in thread '${thread.name}': ${throwable.message}", throwable)
+            // Log the full stack trace for debugging
+            throwable.printStackTrace()
+            // Chain to the default handler if one exists
+            defaultHandler?.uncaughtException(thread, throwable)
+        }
     }
 
     override fun onLowMemory() {
@@ -120,7 +137,10 @@ class XCloudApplication : Application() {
             private set
 
         fun getInstance(): XCloudApplication {
-            return instance ?: throw IllegalStateException("Application not initialized")
+            // Issue #8 - Double-checked locking pattern for thread safety
+            return instance ?: synchronized(this) {
+                instance ?: throw IllegalStateException("Application not initialized")
+            }
         }
 
         fun setWebViewReference(webView: WebView) {

@@ -31,6 +31,23 @@ android {
         }
     }
 
+    flavorDimensions 'platform'
+
+    productFlavors {
+        standard {
+            dimension 'platform'
+            applicationIdSuffix '.standard'
+            versionNameSuffix '-standard'
+        }
+
+        firestick {
+            dimension 'platform'
+            applicationIdSuffix '.firestick'
+            versionNameSuffix '-firestick'
+            minSdk 21
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11

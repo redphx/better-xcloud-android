@@ -1,17 +1,30 @@
 # Better xCloud Android - ProGuard Rules
+# Target: Fire Stick 4K (1st Gen), Android TV OS 7.x (API 25)
 
-# Keep WebView JavaScript Interface
--keepattributes JavascriptInterface
--keepclassmembers class * {
+# Keep JavaScript interface methods
+-keepclassmembers class com.betterxcloud.android.** {
     @android.webkit.JavascriptInterface <methods>;
 }
 
 # Keep WebView classes
--keep class android.webkit.** { *; }
--keep class androidx.webkit.** { *; }
+-keepclassmembers class * extends android.webkit.WebViewClient {
+    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+    public boolean *(android.webkit.WebView, java.lang.String);
+}
+
+-keepclassmembers class * extends android.webkit.WebChromeClient {
+    public void *(android.webkit.WebView, java.lang.String);
+}
 
 # Keep Leanback classes
 -keep class androidx.leanback.** { *; }
+
+# Keep game models (if using reflection)
+-keep class com.betterxcloud.android.models.** { *; }
+
+# Keep all WebView-related classes
+-keep class android.webkit.** { *; }
+-keep class androidx.webkit.** { *; }
 
 # Keep Kotlin metadata
 -keepattributes *Annotation*
@@ -22,11 +35,6 @@
 
 # Keep custom classes that may be used via reflection
 -keep class com.betterxcloud.android.** { *; }
-
-# Optimization flags
--optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
--dontoptimize
--dontpreverify
 
 # Keep enum classes
 -keepclassmembers enum * {
@@ -48,3 +56,27 @@
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+# Keep view constructors for layout inflation
+-keepclassmembers class * extends android.view.View {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+# Keep AndroidX classes
+-keep class androidx.** { *; }
+-keep interface androidx.** { *; }
+
+# Keep native methods
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# Optimization flags
+-optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+-dontoptimize
+-dontpreverify
+-verbose
+
+# Keep generic signatures and line numbers for better debugging
+-keepattributes Signature,LineNumberTable,SourceFile
+-renamesourcefileattribute SourceFile

@@ -3,6 +3,7 @@ package com.betterxcloud.android.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.leanback.app.BrowseSupportFragment
@@ -72,14 +73,14 @@ class MainFragment : BrowseSupportFragment() {
     }
 
     private fun createQuickLaunchRow(): ListRow {
-        val header = HeaderItem(0, "Quick Launch")
+        val header = HeaderItem(0, getString(R.string.quick_launch))
         val listRowAdapter = ArrayObjectAdapter(CardPresenter())
 
         // Launch xCloud button
         listRowAdapter.add(MenuItem(
             id = 1,
-            title = "Launch xCloud",
-            description = "Start Xbox Cloud Gaming",
+            title = getString(R.string.launch_xcloud),
+            description = getString(R.string.start_xbox_cloud_gaming),
             iconResId = R.drawable.ic_xbox
         ))
 
@@ -87,22 +88,22 @@ class MainFragment : BrowseSupportFragment() {
     }
 
     private fun createSettingsRow(): ListRow {
-        val header = HeaderItem(1, "Settings")
+        val header = HeaderItem(1, getString(R.string.settings))
         val listRowAdapter = ArrayObjectAdapter(CardPresenter())
 
         // Settings button
         listRowAdapter.add(MenuItem(
             id = 2,
-            title = "Settings",
-            description = "Configure Better xCloud",
+            title = getString(R.string.settings),
+            description = getString(R.string.configure_better_xcloud),
             iconResId = R.drawable.ic_settings
         ))
 
         // About button
         listRowAdapter.add(MenuItem(
             id = 3,
-            title = "About",
-            description = "Version and information",
+            title = getString(R.string.about),
+            description = getString(R.string.version_and_information),
             iconResId = R.drawable.ic_info
         ))
 
@@ -141,14 +142,11 @@ class MainFragment : BrowseSupportFragment() {
 
     private fun showAboutDialog() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-        builder.setTitle("About Better xCloud")
+        builder.setTitle(getString(R.string.about_title))
         builder.setMessage(
-            "Better xCloud for Android TV\n\n" +
-            "Version: ${com.betterxcloud.android.BuildConfig.VERSION_NAME}\n\n" +
-            "An enhanced Xbox Cloud Gaming experience for Android TV and Fire Stick.\n\n" +
-            "Visit: https://better-xcloud.github.io"
+            getString(R.string.about_message, com.betterxcloud.android.BuildConfig.VERSION_NAME)
         )
-        builder.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+        builder.setPositiveButton(getString(R.string.button_ok)) { dialog, _ -> dialog.dismiss() }
         builder.show()
     }
 

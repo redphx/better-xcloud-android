@@ -3,11 +3,31 @@
 
     <PreferenceCategory android:title="@string/settings_category_stream">
 
+        <ListPreference
+            android:key="pref_stream_quality"
+            android:title="@string/pref_stream_quality"
+            android:summary="@string/pref_stream_quality_summary"
+            android:entries="@array/stream_quality_entries"
+            android:entryValues="@array/stream_quality_values"
+            android:defaultValue="1080p" />
+
         <SwitchPreference
             android:key="pref_enable_stats"
             android:title="@string/pref_enable_stats"
             android:summary="@string/pref_enable_stats_summary"
             android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pref_enable_hdr"
+            android:title="Enable HDR"
+            android:summary="Enable high dynamic range streaming (if supported)"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pref_enable_5g"
+            android:title="Enable 5G"
+            android:summary="Use 5GHz WiFi for better performance"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
@@ -19,9 +39,43 @@
             android:summary="@string/pref_gamepad_vibration_summary"
             android:defaultValue="true" />
 
+        <SeekBarPreference
+            android:key="pref_gamepad_deadzone"
+            android:title="Controller Deadzone"
+            android:summary="Adjust analog stick deadzone to reduce drift"
+            android:defaultValue="15"
+            android:min="0"
+            android:max="30" />
+
+        <SwitchPreference
+            android:key="pref_button_remapping"
+            android:title="@string/pref_button_remapping"
+            android:summary="@string/pref_button_remapping_summary"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pref_reverse_y_axis"
+            android:title="Reverse Y Axis"
+            android:summary="Flip vertical camera movement"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_advanced">
+
+        <SwitchPreference
+            android:key="pref_hardware_acceleration"
+            android:title="Hardware Acceleration"
+            android:summary="Use GPU for rendering (improves performance)"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="pref_cache_size"
+            android:title="Cache Size"
+            android:summary="WebView cache size limit"
+            android:entries="@array/cache_size_entries"
+            android:entryValues="@array/cache_size_values"
+            android:defaultValue="50" />
 
         <Preference
             android:key="pref_clear_cache"
@@ -33,6 +87,32 @@
             android:title="@string/pref_debug_mode"
             android:summary="@string/pref_debug_mode_summary"
             android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="pref_keep_screen_on"
+            android:title="Keep Screen On"
+            android:summary="Prevent screen from turning off during streaming"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="pref_disable_idle_timeout"
+            android:title="Disable Idle Timeout"
+            android:summary="Keep connection active even when idle"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+
+        <Preference
+            android:key="pref_app_version"
+            android:title="App Version"
+            android:summary="1.0.0" />
+
+        <Preference
+            android:key="pref_check_updates"
+            android:title="Check for Updates"
+            android:summary="Download the latest version" />
 
     </PreferenceCategory>
 
