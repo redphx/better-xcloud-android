@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Application Theme -->
+    <style name="Theme.BetterXCloud" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/xbox_green</item>
+        <item name="colorPrimaryDark">@color/xbox_green_dark</item>
+        <item name="colorAccent">@color/xbox_green_light</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+
+    <!-- Fullscreen Theme (for WebView activity) -->
+    <style name="Theme.BetterXCloud.Fullscreen" parent="Theme.BetterXCloud">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Xbox Brand Colors -->
+    <color name="xbox_green">#107C10</color>
+    <color name="xbox_green_dark">#0E6B0E</color>
+    <color name="xbox_green_light">#14A014</color>
+
+    <!-- Basic Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#808080</color>
+    <color name="gray_light">#CCCCCC</color>
+    <color name="gray_dark">#333333</color>
+
+    <!-- UI Colors -->
+    <color name="background_dark">#0E0E10</color>
+    <color name="background_card">#1A1A1E</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+
+    <!-- Status Colors -->
+    <color name="success">#28A745</color>
+    <color name="error">#DC3545</color>
+    <color name="warning">#FFC107</color>
+    <color name="info">#17A2B8</color>
+
+</resources>

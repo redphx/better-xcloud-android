@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Better xCloud</string>
+    <string name="app_description">Enhanced Xbox Cloud Gaming for Android TV</string>
+
+    <!-- Menu Items -->
+    <string name="launch_xcloud">Launch xCloud</string>
+    <string name="launch_xcloud_desc">Start Xbox Cloud Gaming</string>
+    <string name="settings">Settings</string>
+    <string name="settings_desc">Configure Better xCloud</string>
+    <string name="about">About</string>
+    <string name="about_desc">Version and information</string>
+
+    <!-- Settings Categories -->
+    <string name="settings_category_stream">Streaming Settings</string>
+    <string name="settings_category_input">Input Settings</string>
+    <string name="settings_category_advanced">Advanced Settings</string>
+
+    <!-- Stream Settings -->
+    <string name="pref_stream_quality">Stream Quality</string>
+    <string name="pref_stream_quality_summary">Adjust video quality settings</string>
+    <string name="pref_enable_stats">Show Stream Statistics</string>
+    <string name="pref_enable_stats_summary">Display FPS, bitrate, and latency</string>
+
+    <!-- Input Settings -->
+    <string name="pref_gamepad_vibration">Controller Vibration</string>
+    <string name="pref_gamepad_vibration_summary">Enable haptic feedback</string>
+    <string name="pref_button_remapping">Button Remapping</string>
+    <string name="pref_button_remapping_summary">Customize controller layout</string>
+
+    <!-- Advanced Settings -->
+    <string name="pref_clear_cache">Clear Cache</string>
+    <string name="pref_clear_cache_summary">Clear WebView data and cache</string>
+    <string name="pref_debug_mode">Debug Mode</string>
+    <string name="pref_debug_mode_summary">Enable detailed logging</string>
+
+    <!-- Error Messages -->
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_loading_failed">Failed to load xCloud</string>
+    <string name="error_webview_not_available">WebView not available</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_clear_cache_title">Clear Cache?</string>
+    <string name="dialog_clear_cache_message">This will clear all cached data. Continue?</string>
+
+</resources>
