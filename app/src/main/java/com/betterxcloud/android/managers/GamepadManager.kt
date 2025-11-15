@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.webkit.WebView
+import com.betterxcloud.android.BuildConfig
+import kotlin.math.abs
 
 /**
  * Manages gamepad input and forwards it to the WebView for xCloud streaming
@@ -54,21 +56,21 @@ class GamepadManager(private val webView: WebView) {
             return false
         }
 
-        // Left stick
-        val leftX = event.getAxisValue(MotionEvent.AXIS_X)
-        val leftY = event.getAxisValue(MotionEvent.AXIS_Y)
+        // Left stick (with deadzone)
+        val leftX = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_X))
+        val leftY = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_Y))
 
-        // Right stick
-        val rightX = event.getAxisValue(MotionEvent.AXIS_Z)
-        val rightY = event.getAxisValue(MotionEvent.AXIS_RZ)
+        // Right stick (with deadzone)
+        val rightX = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_Z))
+        val rightY = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_RZ))
 
-        // Triggers
-        val leftTrigger = event.getAxisValue(MotionEvent.AXIS_LTRIGGER)
-        val rightTrigger = event.getAxisValue(MotionEvent.AXIS_RTRIGGER)
+        // Triggers (with deadzone)
+        val leftTrigger = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_LTRIGGER))
+        val rightTrigger = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_RTRIGGER))
 
         // D-pad (some controllers use AXIS instead of buttons)
-        val hatX = event.getAxisValue(MotionEvent.AXIS_HAT_X)
-        val hatY = event.getAxisValue(MotionEvent.AXIS_HAT_Y)
+        val hatX = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_HAT_X))
+        val hatY = applyDeadzone(event.getAxisValue(MotionEvent.AXIS_HAT_Y))
 
         injectGamepadAxes(leftX, leftY, rightX, rightY, leftTrigger, rightTrigger, hatX, hatY)
 
@@ -173,7 +175,15 @@ class GamepadManager(private val webView: WebView) {
         }
     }
 
+    /**
+     * Apply deadzone to prevent controller drift
+     */
+    private fun applyDeadzone(value: Float): Float {
+        return if (abs(value) < DEADZONE) 0f else value
+    }
+
     companion object {
         private const val TAG = "GamepadManager"
+        private const val DEADZONE = 0.15f // 15% deadzone for Fire Stick controllers
     }
 }

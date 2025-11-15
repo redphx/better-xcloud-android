@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
 }
 
 android {
@@ -78,7 +79,10 @@ dependencies {
 
     // Image Loading (Glide - optimized for memory)
     implementation 'com.github.bumptech.glide:glide:4.13.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    kapt 'com.github.bumptech.glide:compiler:4.13.2'
+
+    // JSON
+    implementation 'com.google.code.gson:gson:2.10.1'
 
     // Preferences
     implementation 'androidx.preference:preference-ktx:1.2.0'
