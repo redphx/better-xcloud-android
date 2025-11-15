@@ -200,7 +200,12 @@ public final class WebAppInterface {
         if (min == 0.0d) {
             this.vibrator.cancel();
         } else {
-            this.vibrator.vibrate(VibrationEffect.createWaveform(new long[]{1200, 0}, new int[]{Math.max(1, (int) ((255 * min) / 100)), 0}, -1));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                this.vibrator.vibrate(VibrationEffect.createWaveform(new long[]{1200, 0}, new int[]{Math.max(1, (int) ((255 * min) / 100)), 0}, -1));
+            } else {
+                // Fallback for API 24-25
+                this.vibrator.vibrate(new long[]{0, 1200}, -1);
+            }
         }
     }
 
@@ -230,7 +235,12 @@ public final class WebAppInterface {
         } else {
             j = 180;
         }
-        this.vibrator.vibrate(VibrationEffect.createWaveform(new long[]{j, 0}, new int[]{10, 0}, -1));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.vibrator.vibrate(VibrationEffect.createWaveform(new long[]{j, 0}, new int[]{10, 0}, -1));
+        } else {
+            // Fallback for API 24-25
+            this.vibrator.vibrate(new long[]{0, j}, -1);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

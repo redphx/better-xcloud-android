@@ -1,6 +1,7 @@
 package com.redphx.betterxc.web;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -56,10 +57,14 @@ public class CoreWebView extends WebView {
     }
 
     public final void setup() {
-        setDefaultFocusHighlightEnabled(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setDefaultFocusHighlightEnabled(false);
+        }
         setBackgroundColor(0);
         setLayerType(2, null);
-        setRendererPriorityPolicy(2, false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            setRendererPriorityPolicy(2, false);
+        }
         WebView.setWebContentsDebuggingEnabled(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("webview_debuggable", false));
         WebSettings settings = getSettings();
         settings.setJavaScriptEnabled(true);
